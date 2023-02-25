@@ -18,7 +18,7 @@ declare module "next-auth" {
     } & DefaultSession["user"];
   }
   interface User extends DefaultUser {
-      handle?: string & DefaultUser;
+    handle?: string & DefaultUser;
   }
 }
 
@@ -37,7 +37,7 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.AUTH0_CLIENT_ID as string,
       clientSecret: process.env.AUTH0_CLIENT_SECRET as string,
       issuer: process.env.AUTH0_ISSUER as string,
-    })
+    }),
   ],
 };
 

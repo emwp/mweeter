@@ -26,7 +26,6 @@ export const userRouter = createTRPCRouter({
     });
   }),
 
-
   updateProfile: protectedProcedure
     .input(
       z.object({

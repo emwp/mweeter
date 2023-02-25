@@ -1,1 +1,1 @@
-export const prefixHandle = (handle: string) => `@${handle}`
+export const prefixHandle = (handle: string) => `@${handle}`;
