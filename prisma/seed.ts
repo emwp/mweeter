@@ -59,28 +59,28 @@ const users: User[] = [
 async function main() {
   const userList = await prisma.user.findMany();
 
-  if (userList.length < 5) {
-    const userList = await prisma.$transaction(
-      users.map((user) => prisma.user.create({ data: user }))
-    );
+  // if (userList.length < 5) {
+  //   const userList = await prisma.$transaction(
+  //     users.map((user) => prisma.user.create({ data: user }))
+  //   );
 
-    userList.forEach(async (user) => {
-      for (let i = 0; i < 10; i++) {
-        await prisma.mweet.create({
-          data: {
-            content: faker.lorem.sentence(10),
-            createdAt: faker.date.recent(30),
-            userId: user.id,
-          },
-        });
-      }
-    });
+  //   userList.forEach(async (user) => {
+  //     for (let i = 0; i < 10; i++) {
+  //       await prisma.mweet.create({
+  //         data: {
+  //           content: faker.lorem.sentence(10),
+  //           createdAt: faker.date.recent(30),
+  //           userId: user.id,
+  //         },
+  //       });
+  //     }
+  //   });
 
-    return;
-  }
+  //   return;
+  // }
 
   userList.forEach(async (user) => {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 100; i++) {
       await prisma.mweet.create({
         data: {
           content: faker.lorem.sentence(10),
