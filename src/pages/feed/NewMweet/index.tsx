@@ -5,7 +5,7 @@ import { api } from "~/utils/api";
 
 const NewMweet = () => {
   const [message, setMessage] = useState("");
-  const { refetch } = api.mweet.feed.useQuery({ limit: 15 });
+  const { refetch } = api.mweet.feed.useInfiniteQuery({ limit: 15 });
   const { mutate, isLoading } = api.mweet.new.useMutation({
     onSuccess: () => {
       setMessage("");

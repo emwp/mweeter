@@ -2,7 +2,7 @@ import Button from "~/components/Button";
 import Input from "~/components/Input";
 import { api } from "~/utils/api";
 import BaseLayout from "~/components/Layout/BaseLayout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Profile = () => {
   const { data, refetch } = api.user.current.useQuery();
@@ -10,9 +10,17 @@ const Profile = () => {
     onSuccess: () => refetch(),
   });
 
-  const [handle, setHandle] = useState<string>(data?.handle || "");
-  const [name, setName] = useState<string>(data?.name || "");
-  const [lastName, setLastName] = useState<string>(data?.lastName || "");
+  const [handle, setHandle] = useState("");
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  useEffect(() => {
+    if (data) {
+      setHandle(data?.handle ?? "");
+      setName(data?.name ?? "");
+      setLastName(data?.lastName ?? "");
+    }
+  }, [data]);
 
   const handleUpdate = () => mutate({ handle, name, lastName });
 
@@ -28,20 +36,20 @@ const Profile = () => {
             <div className="grid w-full max-w-xl grid-rows-2 gap-2 sm:grid-cols-2 sm:grid-rows-none sm:gap-4">
               <Input
                 label="First Name"
-                value={data?.name || name}
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Albert"
               />
               <Input
                 label="Last Name"
-                value={data?.lastName || lastName}
+                value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 placeholder="Flores"
               />
             </div>
             <Input
               label="Your handle (username)"
-              value={data?.handle || handle}
+              value={handle}
               onChange={(e) => setHandle(e.target.value)}
               placeholder="aflores"
             />
