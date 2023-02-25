@@ -8,7 +8,8 @@
     "lint": "next lint",
     "start": "next start",
     "prettier": "prettier --write './src/**/*.{ts,tsx}'",
-    "prisma:seed": "NODE_ENV=development pnpx tsx ./prisma/seed.ts"
+    "prisma:seed": "NODE_ENV=development pnpx tsx ./prisma/seed.ts",
+    "typescript": "pnpm tsc"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.5",

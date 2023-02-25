@@ -4,10 +4,10 @@ import ButtonContent from "./ButtonContent";
 
 type Props = {
   loading: boolean;
-  disabled: boolean;
   text: string;
   dotsColor: string;
   className?: string;
+  disabled?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const defaultClass =
