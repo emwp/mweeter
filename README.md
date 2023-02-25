@@ -1,6 +1,8 @@
-## Mweeter
+## Mweeter:
 
 Mweeter is an minimal app replicating some features from Twitter, such as a timeline, ability to follow/unfollow other people, infinite scrolling and profile editing.
+
+You can check it out at: mweeter-zeta.vercel.app
 
 ## Features:
 
@@ -29,7 +31,7 @@ Mweeter is an minimal app replicating some features from Twitter, such as a time
 - [tRPC](https://trpc.io)
 - [Zod](https://zod.dev)
 
-## How To Use
+## How To Run Locally:
 
 You'll need:
 
